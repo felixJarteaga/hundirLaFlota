@@ -26,18 +26,24 @@ export class GeneradorFlota {
 
     }
 
-    private dameCoordenadaInical(): Coordenada {
-        let x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.altoD)
-        let y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.anchoD)
-        return new Coordenada(x, y);
+    private dameCoordenadaInical(size: number, sentido: Sentido): Coordenada {
+        do {
+            let x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.anchoD)
+            let y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.altoD)
+            var coordenada= new Coordenada(x, y);
+        }while(!this.entraElBarcoEnLosLimites(size, coordenada, sentido));
+        return coordenada;
+
+
     }
 
-    public crearBarco(size: number): Barco {
+    public crearBarco(size: number,almacenDeBarcos: Array<Barco>): Barco {
         do {
-            var inicial = this.dameCoordenadaInical();
             var direccion = this.dameSentidoAleatorio();
-        } while (!this.entraElBarcoEnLosLimites(size, inicial, direccion))
-        return new Barco(size, inicial, direccion);
+            var inicial = this.dameCoordenadaInical(size,direccion);
+            var barco=new Barco(size, inicial, direccion);
+        } while (this.exixteSolapamiento(barco,almacenDeBarcos))
+        return barco;
     }
 
     private entraElBarcoEnLosLimites(size: number, coordenadaInicial: Coordenada, sentido: Sentido): boolean {
@@ -45,6 +51,7 @@ export class GeneradorFlota {
         let saleDeLosLImites: boolean = true;
         if (sentido == Sentido.abajo) {
             posMax = size + coordenadaInicial.y;
+
 
             if (posMax > this._dimensiones.altoD) {
                 saleDeLosLImites = false;
@@ -58,5 +65,13 @@ export class GeneradorFlota {
         return saleDeLosLImites;
 
 
+    }
+    private exixteSolapamiento(barco:Barco,almacenDeBarcos: Array<Barco>):Boolean{
+        for (let i:number=0;i<almacenDeBarcos.length;i++){
+            if (barco.compruebaSolapamiento(almacenDeBarcos[i].posiciones)){
+                return true;
+            }
+        }
+        return false;
     }
 }

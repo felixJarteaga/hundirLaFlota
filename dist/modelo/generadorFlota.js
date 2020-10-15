@@ -17,34 +17,46 @@ var GeneradorFlota = /** @class */ (function () {
         }
         return sentido_1.Sentido.abajo;
     };
-    GeneradorFlota.prototype.dameCoordenadaInical = function () {
-        var x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.alto);
-        var y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.ancho);
-        return new coordenada_1.Coordenada(x, y);
-    };
-    GeneradorFlota.prototype.crearBarco = function (size) {
+    GeneradorFlota.prototype.dameCoordenadaInical = function (size, sentido) {
         do {
-            var inicial = this.dameCoordenadaInical();
+            var x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.anchoD);
+            var y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.altoD);
+            var coordenada = new coordenada_1.Coordenada(x, y);
+        } while (!this.entraElBarcoEnLosLimites(size, coordenada, sentido));
+        return coordenada;
+    };
+    GeneradorFlota.prototype.crearBarco = function (size, almacenDeBarcos) {
+        do {
             var direccion = this.dameSentidoAleatorio();
-        } while (!this.entraElBarcoEnLosLimites(size, inicial, direccion));
-        return new barco_1.Barco(size, inicial, direccion);
+            var inicial = this.dameCoordenadaInical(size, direccion);
+            var barco = new barco_1.Barco(size, inicial, direccion);
+        } while (this.exixteSolapamiento(barco, almacenDeBarcos));
+        return barco;
     };
     GeneradorFlota.prototype.entraElBarcoEnLosLimites = function (size, coordenadaInicial, sentido) {
         var posMax = 0;
         var saleDeLosLImites = true;
         if (sentido == sentido_1.Sentido.abajo) {
             posMax = size + coordenadaInicial.y;
-            if (posMax > this._dimensiones.alto) {
+            if (posMax > this._dimensiones.altoD) {
                 saleDeLosLImites = false;
             }
         }
         else {
             posMax = size + coordenadaInicial.x;
-            if (posMax > this._dimensiones.ancho) {
+            if (posMax > this._dimensiones.anchoD) {
                 saleDeLosLImites = false;
             }
         }
         return saleDeLosLImites;
+    };
+    GeneradorFlota.prototype.exixteSolapamiento = function (barco, almacenDeBarcos) {
+        for (var i = 0; i < almacenDeBarcos.length; i++) {
+            if (barco.compruebaSolapamiento(almacenDeBarcos[i].posiciones)) {
+                return true;
+            }
+        }
+        return false;
     };
     return GeneradorFlota;
 }());

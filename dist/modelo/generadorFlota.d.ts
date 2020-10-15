@@ -6,6 +6,7 @@ export declare class GeneradorFlota {
     private dameNumeroAleatorioEntreMaxMin;
     private dameSentidoAleatorio;
     private dameCoordenadaInical;
-    crearBarco(size: number): Barco;
+    crearBarco(size: number, almacenDeBarcos: Array<Barco>): Barco;
     private entraElBarcoEnLosLimites;
+    private exixteSolapamiento;
 }

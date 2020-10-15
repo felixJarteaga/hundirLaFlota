@@ -1,1 +1,1 @@
-{"version":3,"file":"estado.js","sourceRoot":"","sources":["../../src/modelo/estado.ts"],"names":[],"mappings":";;;AAAA,IAAY,MAIX;AAJD,WAAY,MAAM;IAElB,uCAAM,CAAA;IAAE,yCAAO,CAAA;AAEf,CAAC,EAJW,MAAM,GAAN,cAAM,KAAN,cAAM,QAIjB"}
+{"version":3,"file":"estado.js","sourceRoot":"","sources":["../../src/modelo/estado.ts"],"names":[],"mappings":";;;AAAA,IAAY,MAIX;AAJD,WAAY,MAAM;IAElB,uCAAM,CAAA;IAAE,yCAAO,CAAA;IAAC,yCAAO,CAAA;AAEvB,CAAC,EAJW,MAAM,GAAN,cAAM,KAAN,cAAM,QAIjB"}

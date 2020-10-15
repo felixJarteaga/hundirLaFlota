@@ -13,4 +13,6 @@ export declare class Flota {
     set fabricaDeBarcos(value: GeneradorFlota);
     get dimensiones(): Dimension;
     set dimensiones(value: Dimension);
+    comprobarBarcoHundido(_barcosHundidos: number): number;
+    private hundirBarco;
 }

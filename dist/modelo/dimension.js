@@ -2,26 +2,26 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dimension = void 0;
 var Dimension = /** @class */ (function () {
-    function Dimension(_alto, _ancho) {
-        this._alto = _alto;
-        this._ancho = _ancho;
+    function Dimension(_altoD, _anchoD) {
+        this._altoD = _altoD;
+        this._anchoD = _anchoD;
     }
-    Object.defineProperty(Dimension.prototype, "alto", {
+    Object.defineProperty(Dimension.prototype, "altoD", {
         get: function () {
-            return this._alto;
+            return this._altoD;
         },
         set: function (value) {
-            this._alto = value;
+            this._altoD = value;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Dimension.prototype, "ancho", {
+    Object.defineProperty(Dimension.prototype, "anchoD", {
         get: function () {
-            return this._ancho;
+            return this._anchoD;
         },
         set: function (value) {
-            this._ancho = value;
+            this._anchoD = value;
         },
         enumerable: false,
         configurable: true

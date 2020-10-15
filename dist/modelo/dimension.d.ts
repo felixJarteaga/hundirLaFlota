@@ -1,9 +1,9 @@
 export declare class Dimension {
-    private _alto;
-    private _ancho;
-    constructor(_alto: number, _ancho: number);
-    get alto(): number;
-    set alto(value: number);
-    get ancho(): number;
-    set ancho(value: number);
+    private _altoD;
+    private _anchoD;
+    constructor(_altoD: number, _anchoD: number);
+    get altoD(): number;
+    set altoD(value: number);
+    get anchoD(): number;
+    set anchoD(value: number);
 }
