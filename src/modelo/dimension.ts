@@ -1,21 +1,21 @@
 export class Dimension{
-    constructor(private _alto:number,private _ancho:number) {
+    constructor(private _altoD:number,private _anchoD:number) {
 
     }
 
-    get alto(): number {
-        return this._alto;
+    get altoD(): number {
+        return this._altoD;
     }
 
-    set alto(value: number) {
-        this._alto = value;
+    set altoD(value: number) {
+        this._altoD = value;
     }
 
-    get ancho(): number {
-        return this._ancho;
+    get anchoD(): number {
+        return this._anchoD;
     }
 
-    set ancho(value: number) {
-        this._ancho = value;
+    set anchoD(value: number) {
+        this._anchoD = value;
     }
 }

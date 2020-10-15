@@ -19,8 +19,8 @@ export class Tablero{
     }
 
     private crearTablero(){
-        for (let i:number=0;i<this._dimension.alto;i++){
-            this._tablero[i]= new Array(this._dimension.ancho);
+        for (let i:number=0; i<this._dimension.altoD; i++){
+            this._tablero[i]= new Array(this._dimension.anchoD);
 
         }
     }

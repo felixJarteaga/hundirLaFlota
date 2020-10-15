@@ -27,8 +27,8 @@ export class GeneradorFlota {
     }
 
     private dameCoordenadaInical(): Coordenada {
-        let x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.alto)
-        let y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.ancho)
+        let x = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.altoD)
+        let y = this.dameNumeroAleatorioEntreMaxMin(0, this._dimensiones.anchoD)
         return new Coordenada(x, y);
     }
 
@@ -46,12 +46,12 @@ export class GeneradorFlota {
         if (sentido == Sentido.abajo) {
             posMax = size + coordenadaInicial.y;
 
-            if (posMax > this._dimensiones.alto) {
+            if (posMax > this._dimensiones.altoD) {
                 saleDeLosLImites = false;
             }
         } else {
             posMax = size + coordenadaInicial.x;
-            if (posMax > this._dimensiones.ancho) {
+            if (posMax > this._dimensiones.anchoD) {
                 saleDeLosLImites = false;
             }
         }
